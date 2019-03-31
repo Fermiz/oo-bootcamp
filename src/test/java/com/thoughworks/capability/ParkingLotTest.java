@@ -72,7 +72,7 @@ public class ParkingLotTest {
         Car car = new Car("00001");
         parkingLot.parking(car);
 
-        parkingLot.getCar(new Ticket(parkingLot.getId(), new Car("00002")));
+        parkingLot.getCar(new Ticket(parkingLot.getId(), "00002"));
     }
 
     @Test(expected = InvalidTicketException.class)
@@ -84,6 +84,6 @@ public class ParkingLotTest {
 
         parkingLot.parking(cars);
 
-        parkingLot.getCars(Arrays.asList(new Ticket(parkingLot.getId(), car1)));
+        parkingLot.getCars(Arrays.asList(new Ticket(parkingLot.getId(), car1.getId())));
     }
 }

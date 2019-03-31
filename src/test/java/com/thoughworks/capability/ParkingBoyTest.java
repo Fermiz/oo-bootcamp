@@ -71,7 +71,7 @@ public class ParkingBoyTest {
 
         parkingBoy.parking(Arrays.asList(car1, car2, car3));
 
-        parkingBoy.getCar(new Ticket("A1", new Car("00004"))).getId();
+        parkingBoy.getCar(new Ticket("A1", "00004")).getId();
     }
 
     @Test
@@ -100,6 +100,6 @@ public class ParkingBoyTest {
 
         List<Ticket> tickets = parkingBoy.parking(Arrays.asList(car1, car2, car3));
 
-        parkingBoy.getCars(Arrays.asList(tickets.get(0), new Ticket("A1", new Car("00004"))));
+        parkingBoy.getCars(Arrays.asList(tickets.get(0), new Ticket("A1", "00004")));
     }
 }

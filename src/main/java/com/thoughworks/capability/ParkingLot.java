@@ -25,7 +25,7 @@ public class ParkingLot {
 
         storedCars.add(car);
 
-        Ticket ticket =  new Ticket(id, car);
+        Ticket ticket =  new Ticket(id, car.getId());
 
         tickets.add(ticket);
 
@@ -53,7 +53,7 @@ public class ParkingLot {
             throw new InvalidTicketException("Ticket is invalid");
         }
 
-        Car car =  storedCars.stream().filter(it -> it.getId().equals(ticket.getCar().getId())).findFirst().orElseThrow(() -> new InvalidTicketException("Ticket is invalid"));
+        Car car =  storedCars.stream().filter(it -> it.getId().equals(ticket.getCarId())).findFirst().orElseThrow(() -> new InvalidTicketException("Ticket is invalid"));
         storedCars.remove(car);
         tickets.remove(ticket);
 

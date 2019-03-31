@@ -5,24 +5,24 @@ import java.util.Random;
 public class Ticket {
     private String id;
     private String parkingLotId;
-    private Car car;
+    private String carId;
 
-    public Ticket(String parkingLot, Car car) {
-        this.id = "ticket-" + car.getId();
+    public Ticket(String parkingLot, String carId) {
+        this.id = "ticket-" + carId;
         this.parkingLotId = parkingLot;
-        this.car = car;
+        this.carId = carId;
     }
 
     public String getId() {
         return id;
     }
 
-
-    public Car getCar() {
-        return car;
-    }
-
     public String getParkingLotId() {
         return parkingLotId;
     }
+
+    public String getCarId() {
+        return carId;
+    }
+
 }
