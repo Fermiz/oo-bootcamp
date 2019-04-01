@@ -33,7 +33,7 @@ public class ParkingLotTest {
 
     @Test
     public void should_get_one_car_when_my_car_is_in_parkingLot() throws Exception {
-        var car1 = new Car("00001");
+        Car car1 = new Car("00001");
         Car car2 = new Car("00002");
         Car car3 = new Car("00003");
         List<Car> cars = Arrays.asList(car1, car2, car3);
@@ -48,7 +48,7 @@ public class ParkingLotTest {
 
     @Test
     public void should_get_a_list_of_car_when_my_cars_are_in_parkingLot() throws Exception {
-        var car1 = new Car("00001");
+        Car car1 = new Car("00001");
         Car car2 = new Car("00002");
         Car car3 = new Car("00003");
         List<Car> cars = Arrays.asList(car1, car2, car3);
@@ -77,7 +77,7 @@ public class ParkingLotTest {
 
     @Test(expected = InvalidTicketException.class)
     public void should_throw_exception_when_tickets_are_invalid() throws Exception {
-        var car1 = new Car("00001");
+        Car car1 = new Car("00001");
         Car car2 = new Car("00002");
         Car car3 = new Car("00003");
         List<Car> cars = Arrays.asList(car1, car2, car3);
@@ -85,5 +85,19 @@ public class ParkingLotTest {
         parkingLot.parking(cars);
 
         parkingLot.getCars(Arrays.asList(new Ticket(parkingLot.getId(), car1.getId())));
+    }
+
+    @Test
+    public void should_reduce_capcity_after_park_cars_in_parking_lot() throws Exception {
+        ParkingLot parkingLotTest = new ParkingLot("A1", 3);
+        Car car1 = new Car("00001");
+        Car car2 = new Car("00002");
+        Car car3 = new Car("00002");
+        List<Car> cars = Arrays.asList(car1, car2, car3);
+
+        parkingLotTest.parking(cars);
+
+        assertEquals(0, parkingLotTest.getCapacity());
+
     }
 }
