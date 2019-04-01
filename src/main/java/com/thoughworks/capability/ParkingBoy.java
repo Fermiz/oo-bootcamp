@@ -23,13 +23,9 @@ public abstract class ParkingBoy {
             try {
                 car = parkingLot.getCar(ticket);
             }catch (Exception ex){
-
+                continue;
             }
         }
-
-        parkingLots.forEach(item -> {
-
-        });
 
         if(car == null){
             throw  new InvalidTicketException("Invalid ticket!");
